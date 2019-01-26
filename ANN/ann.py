@@ -80,5 +80,17 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_pred,y_test)
 
 
+# Part 4 Evaluating, Improving and Tuning the ANN
+
+# Evaluating 
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import cross_val_score
+
+
+
 
 
