@@ -123,7 +123,7 @@ def build_classifier(optimizer) :
     classifier.compile(optimizer=optimizer, loss ='binary_crossentropy', metrics=['accuracy'])
     return classifier
 classifier = KerasClassifier(build_fn=build_classifier)
-parameters = {'batch_size' : [25,32],'nb_epoch' : [100,500] , 'optimizer' : ['adam','rmsprop']}
+parameters = {'batch_size' : [25,32],'epochs' : [100,500] , 'optimizer' : ['adam','rmsprop']}
 
 grid_search = GridSearchCV(estimator=classifier, param_grid=parameters , scoring='accuracy', cv=10)
 grid_search = grid_search.fit(X=X_train,y=y_train)
