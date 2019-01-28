@@ -100,7 +100,7 @@ def build_classifier() :
     classifier.add(Dense(units = 1,activation= 'sigmoid',kernel_initializer='uniform'))
     classifier.compile(optimizer='adam', loss ='binary_crossentropy', metrics=['accuracy'])
     return classifier
-classifier = KerasClassifier(build_fn=build_classifier, batch_size = 10 , epochs = 100)
+classifier = KerasClassifier(build_fn=build_classifier, batch_size = 75 , epochs = 750)
 # Train 10 ANN at the same time(parallrel)
 accuracies = cross_val_score(estimator = classifier, X=X_train , y=y_train,cv = 10 , n_jobs=-1)
     
@@ -131,6 +131,8 @@ grid_search = grid_search.fit(X=X_train,y=y_train)
 best_params = grid_search.best_params_
 best_accuracy = grid_search.best_score_
 
+# Best params : batch_size = 75, epochs = 750 , optimizer = adam
+# result : 86%
 
 
 
